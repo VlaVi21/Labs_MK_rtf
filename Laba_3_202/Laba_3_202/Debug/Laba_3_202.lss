@@ -1,0 +1,439 @@
+
+Laba_3_202.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001ce  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000222  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000222  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000254  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000038  00000000  00000000  00000290  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000084a  00000000  00000000  000002c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000061b  00000000  00000000  00000b12  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000531  00000000  00000000  0000112d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000006c  00000000  00000000  00001660  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00007388  00000000  00000000  000016cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000027f  00000000  00000000  00008a54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  00008cd3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_macro  000003d5  00000000  00000000  00008cfb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	29 c0       	rjmp	.+82     	; 0x54 <__ctors_end>
+   2:	00 00       	nop
+   4:	38 c0       	rjmp	.+112    	; 0x76 <__vector_1>
+   6:	00 00       	nop
+   8:	40 c0       	rjmp	.+128    	; 0x8a <__vector_2>
+   a:	00 00       	nop
+   c:	33 c0       	rjmp	.+102    	; 0x74 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	31 c0       	rjmp	.+98     	; 0x74 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	2f c0       	rjmp	.+94     	; 0x74 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	2d c0       	rjmp	.+90     	; 0x74 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	2b c0       	rjmp	.+86     	; 0x74 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	29 c0       	rjmp	.+82     	; 0x74 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	27 c0       	rjmp	.+78     	; 0x74 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	25 c0       	rjmp	.+74     	; 0x74 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	23 c0       	rjmp	.+70     	; 0x74 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	21 c0       	rjmp	.+66     	; 0x74 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	1f c0       	rjmp	.+62     	; 0x74 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	1d c0       	rjmp	.+58     	; 0x74 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	1b c0       	rjmp	.+54     	; 0x74 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	19 c0       	rjmp	.+50     	; 0x74 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	17 c0       	rjmp	.+46     	; 0x74 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	15 c0       	rjmp	.+42     	; 0x74 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	13 c0       	rjmp	.+38     	; 0x74 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	11 c0       	rjmp	.+34     	; 0x74 <__bad_interrupt>
+	...
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a0 36       	cpi	r26, 0x60	; 96
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	95 d0       	rcall	.+298    	; 0x19c <main>
+  72:	ab c0       	rjmp	.+342    	; 0x1ca <_exit>
+
+00000074 <__bad_interrupt>:
+  74:	c5 cf       	rjmp	.-118    	; 0x0 <__vectors>
+
+00000076 <__vector_1>:
+
+int perecl = 0;
+
+//режим зовнішних переривань  для 4 пункту
+ISR(INT0_vect)
+{	
+  76:	1f 92       	push	r1
+  78:	0f 92       	push	r0
+  7a:	0f b6       	in	r0, 0x3f	; 63
+  7c:	0f 92       	push	r0
+  7e:	11 24       	eor	r1, r1
+		
+		}
+		while((PIND & BUT1) == BUT1);     
+	 }*/
+	
+}
+  80:	0f 90       	pop	r0
+  82:	0f be       	out	0x3f, r0	; 63
+  84:	0f 90       	pop	r0
+  86:	1f 90       	pop	r1
+  88:	18 95       	reti
+
+0000008a <__vector_2>:
+
+ISR(INT1_vect)
+{
+  8a:	1f 92       	push	r1
+  8c:	0f 92       	push	r0
+  8e:	0f b6       	in	r0, 0x3f	; 63
+  90:	0f 92       	push	r0
+  92:	11 24       	eor	r1, r1
+		break;
+			
+		}
+		while((PIND & BUT2) == BUT2);     
+	}*/
+}
+  94:	0f 90       	pop	r0
+  96:	0f be       	out	0x3f, r0	; 63
+  98:	0f 90       	pop	r0
+  9a:	1f 90       	pop	r1
+  9c:	18 95       	reti
+
+0000009e <Zavd8>:
+
+void Zavd8(){
+  9e:	2f ef       	ldi	r18, 0xFF	; 255
+	//8 zavd
+	// Від червоного до зеленого (зменшуємо червоний, збільшуємо зелений)
+	for (int i = 0; i <= 255; i++) {
+  a0:	80 e0       	ldi	r24, 0x00	; 0
+  a2:	90 e0       	ldi	r25, 0x00	; 0
+		OCR2 = 255 - i;   // Червоний зменшується
+  a4:	23 bd       	out	0x23, r18	; 35
+		OCR1A = i;        // Зелений збільшується
+  a6:	9b bd       	out	0x2b, r25	; 43
+  a8:	8a bd       	out	0x2a, r24	; 42
+		OCR1B = 0;        // Синій постійно вимкнений
+  aa:	19 bc       	out	0x29, r1	; 41
+  ac:	18 bc       	out	0x28, r1	; 40
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ae:	ef ec       	ldi	r30, 0xCF	; 207
+  b0:	f7 e0       	ldi	r31, 0x07	; 7
+  b2:	31 97       	sbiw	r30, 0x01	; 1
+  b4:	f1 f7       	brne	.-4      	; 0xb2 <Zavd8+0x14>
+  b6:	00 c0       	rjmp	.+0      	; 0xb8 <Zavd8+0x1a>
+  b8:	00 00       	nop
+}
+
+void Zavd8(){
+	//8 zavd
+	// Від червоного до зеленого (зменшуємо червоний, збільшуємо зелений)
+	for (int i = 0; i <= 255; i++) {
+  ba:	01 96       	adiw	r24, 0x01	; 1
+  bc:	21 50       	subi	r18, 0x01	; 1
+  be:	81 15       	cp	r24, r1
+  c0:	f1 e0       	ldi	r31, 0x01	; 1
+  c2:	9f 07       	cpc	r25, r31
+  c4:	79 f7       	brne	.-34     	; 0xa4 <Zavd8+0x6>
+  c6:	80 e0       	ldi	r24, 0x00	; 0
+  c8:	90 e0       	ldi	r25, 0x00	; 0
+  ca:	4f ef       	ldi	r20, 0xFF	; 255
+  cc:	50 e0       	ldi	r21, 0x00	; 0
+		_delay_ms(8);    // Затримка для плавності
+	}
+
+	// Від зеленого до синього (зменшуємо зелений, збільшуємо синій)
+	for (int i = 0; i <= 255; i++) {
+		OCR2 = 0;         // Червоний вимкнений
+  ce:	13 bc       	out	0x23, r1	; 35
+  d0:	9a 01       	movw	r18, r20
+  d2:	28 1b       	sub	r18, r24
+  d4:	39 0b       	sbc	r19, r25
+		OCR1A = 255 - i;  // Зелений зменшується
+  d6:	3b bd       	out	0x2b, r19	; 43
+  d8:	2a bd       	out	0x2a, r18	; 42
+		OCR1B = i;        // Синій збільшується
+  da:	99 bd       	out	0x29, r25	; 41
+  dc:	88 bd       	out	0x28, r24	; 40
+  de:	ef ec       	ldi	r30, 0xCF	; 207
+  e0:	f7 e0       	ldi	r31, 0x07	; 7
+  e2:	31 97       	sbiw	r30, 0x01	; 1
+  e4:	f1 f7       	brne	.-4      	; 0xe2 <Zavd8+0x44>
+  e6:	00 c0       	rjmp	.+0      	; 0xe8 <Zavd8+0x4a>
+  e8:	00 00       	nop
+		OCR1B = 0;        // Синій постійно вимкнений
+		_delay_ms(8);    // Затримка для плавності
+	}
+
+	// Від зеленого до синього (зменшуємо зелений, збільшуємо синій)
+	for (int i = 0; i <= 255; i++) {
+  ea:	01 96       	adiw	r24, 0x01	; 1
+  ec:	81 15       	cp	r24, r1
+  ee:	f1 e0       	ldi	r31, 0x01	; 1
+  f0:	9f 07       	cpc	r25, r31
+  f2:	69 f7       	brne	.-38     	; 0xce <Zavd8+0x30>
+  f4:	20 e0       	ldi	r18, 0x00	; 0
+  f6:	8f ef       	ldi	r24, 0xFF	; 255
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+		_delay_ms(8);
+	}
+
+	// Від синього до червоного (зменшуємо синій, збільшуємо червоний)
+	for (int i = 0; i <= 255; i++) {
+		OCR2 = i;         // Червоний збільшується
+  fa:	23 bd       	out	0x23, r18	; 35
+		OCR1A = 0;        // Зелений вимкнений
+  fc:	1b bc       	out	0x2b, r1	; 43
+  fe:	1a bc       	out	0x2a, r1	; 42
+		OCR1B = 255 - i;  // Синій зменшується
+ 100:	99 bd       	out	0x29, r25	; 41
+ 102:	88 bd       	out	0x28, r24	; 40
+ 104:	ef ec       	ldi	r30, 0xCF	; 207
+ 106:	f7 e0       	ldi	r31, 0x07	; 7
+ 108:	31 97       	sbiw	r30, 0x01	; 1
+ 10a:	f1 f7       	brne	.-4      	; 0x108 <Zavd8+0x6a>
+ 10c:	00 c0       	rjmp	.+0      	; 0x10e <Zavd8+0x70>
+ 10e:	00 00       	nop
+ 110:	01 97       	sbiw	r24, 0x01	; 1
+ 112:	2f 5f       	subi	r18, 0xFF	; 255
+		OCR1B = i;        // Синій збільшується
+		_delay_ms(8);
+	}
+
+	// Від синього до червоного (зменшуємо синій, збільшуємо червоний)
+	for (int i = 0; i <= 255; i++) {
+ 114:	8f 3f       	cpi	r24, 0xFF	; 255
+ 116:	ff ef       	ldi	r31, 0xFF	; 255
+ 118:	9f 07       	cpc	r25, r31
+ 11a:	79 f7       	brne	.-34     	; 0xfa <Zavd8+0x5c>
+ 11c:	2f ef       	ldi	r18, 0xFF	; 255
+ 11e:	80 e0       	ldi	r24, 0x00	; 0
+ 120:	90 e0       	ldi	r25, 0x00	; 0
+
+	// І тепер у зворотньому напрямку:
+
+	// Від червоного до синього (зменшуємо червоний, збільшуємо синій)
+	for (int i = 0; i <= 255; i++) {
+		OCR2 = 255 - i;   // Червоний зменшується
+ 122:	23 bd       	out	0x23, r18	; 35
+		OCR1A = 0;        // Зелений вимкнений
+ 124:	1b bc       	out	0x2b, r1	; 43
+ 126:	1a bc       	out	0x2a, r1	; 42
+		OCR1B = i;        // Синій збільшується
+ 128:	99 bd       	out	0x29, r25	; 41
+ 12a:	88 bd       	out	0x28, r24	; 40
+ 12c:	ef ec       	ldi	r30, 0xCF	; 207
+ 12e:	f7 e0       	ldi	r31, 0x07	; 7
+ 130:	31 97       	sbiw	r30, 0x01	; 1
+ 132:	f1 f7       	brne	.-4      	; 0x130 <Zavd8+0x92>
+ 134:	00 c0       	rjmp	.+0      	; 0x136 <Zavd8+0x98>
+ 136:	00 00       	nop
+	}
+
+	// І тепер у зворотньому напрямку:
+
+	// Від червоного до синього (зменшуємо червоний, збільшуємо синій)
+	for (int i = 0; i <= 255; i++) {
+ 138:	01 96       	adiw	r24, 0x01	; 1
+ 13a:	21 50       	subi	r18, 0x01	; 1
+ 13c:	81 15       	cp	r24, r1
+ 13e:	f1 e0       	ldi	r31, 0x01	; 1
+ 140:	9f 07       	cpc	r25, r31
+ 142:	79 f7       	brne	.-34     	; 0x122 <Zavd8+0x84>
+ 144:	80 e0       	ldi	r24, 0x00	; 0
+ 146:	90 e0       	ldi	r25, 0x00	; 0
+ 148:	4f ef       	ldi	r20, 0xFF	; 255
+ 14a:	50 e0       	ldi	r21, 0x00	; 0
+		_delay_ms(8);
+	}
+
+	// Від синього до зеленого (зменшуємо синій, збільшуємо зелений)
+	for (int i = 0; i <= 255; i++) {
+		OCR2 = 0;         // Червоний вимкнений
+ 14c:	13 bc       	out	0x23, r1	; 35
+		OCR1A = i;        // Зелений збільшується
+ 14e:	9b bd       	out	0x2b, r25	; 43
+ 150:	8a bd       	out	0x2a, r24	; 42
+ 152:	9a 01       	movw	r18, r20
+ 154:	28 1b       	sub	r18, r24
+ 156:	39 0b       	sbc	r19, r25
+		OCR1B = 255 - i;  // Синій зменшується
+ 158:	39 bd       	out	0x29, r19	; 41
+ 15a:	28 bd       	out	0x28, r18	; 40
+ 15c:	ef ec       	ldi	r30, 0xCF	; 207
+ 15e:	f7 e0       	ldi	r31, 0x07	; 7
+ 160:	31 97       	sbiw	r30, 0x01	; 1
+ 162:	f1 f7       	brne	.-4      	; 0x160 <Zavd8+0xc2>
+ 164:	00 c0       	rjmp	.+0      	; 0x166 <Zavd8+0xc8>
+ 166:	00 00       	nop
+		OCR1B = i;        // Синій збільшується
+		_delay_ms(8);
+	}
+
+	// Від синього до зеленого (зменшуємо синій, збільшуємо зелений)
+	for (int i = 0; i <= 255; i++) {
+ 168:	01 96       	adiw	r24, 0x01	; 1
+ 16a:	81 15       	cp	r24, r1
+ 16c:	f1 e0       	ldi	r31, 0x01	; 1
+ 16e:	9f 07       	cpc	r25, r31
+ 170:	69 f7       	brne	.-38     	; 0x14c <Zavd8+0xae>
+ 172:	20 e0       	ldi	r18, 0x00	; 0
+ 174:	8f ef       	ldi	r24, 0xFF	; 255
+ 176:	90 e0       	ldi	r25, 0x00	; 0
+		_delay_ms(8);
+	}
+
+	// Від зеленого до червоного (зменшуємо зелений, збільшуємо червоний)
+	for (int i = 0; i <= 255; i++) {
+		OCR2 = i;         // Червоний збільшується
+ 178:	23 bd       	out	0x23, r18	; 35
+		OCR1A = 255 - i;  // Зелений зменшується
+ 17a:	9b bd       	out	0x2b, r25	; 43
+ 17c:	8a bd       	out	0x2a, r24	; 42
+		OCR1B = 0;        // Синій вимкнений
+ 17e:	19 bc       	out	0x29, r1	; 41
+ 180:	18 bc       	out	0x28, r1	; 40
+ 182:	ef ec       	ldi	r30, 0xCF	; 207
+ 184:	f7 e0       	ldi	r31, 0x07	; 7
+ 186:	31 97       	sbiw	r30, 0x01	; 1
+ 188:	f1 f7       	brne	.-4      	; 0x186 <Zavd8+0xe8>
+ 18a:	00 c0       	rjmp	.+0      	; 0x18c <Zavd8+0xee>
+ 18c:	00 00       	nop
+ 18e:	01 97       	sbiw	r24, 0x01	; 1
+ 190:	2f 5f       	subi	r18, 0xFF	; 255
+		OCR1B = 255 - i;  // Синій зменшується
+		_delay_ms(8);
+	}
+
+	// Від зеленого до червоного (зменшуємо зелений, збільшуємо червоний)
+	for (int i = 0; i <= 255; i++) {
+ 192:	8f 3f       	cpi	r24, 0xFF	; 255
+ 194:	ff ef       	ldi	r31, 0xFF	; 255
+ 196:	9f 07       	cpc	r25, r31
+ 198:	79 f7       	brne	.-34     	; 0x178 <Zavd8+0xda>
+		OCR2 = i;         // Червоний збільшується
+		OCR1A = 255 - i;  // Зелений зменшується
+		OCR1B = 0;        // Синій вимкнений
+		_delay_ms(8);
+	}
+}
+ 19a:	08 95       	ret
+
+0000019c <main>:
+}*/
+
+int main (void)
+{
+	//згідно даташиту(ст. 105)
+	TCCR2 |= (1<<WGM20)|(1<<WGM21)|(1<<COM21)|(1<<CS22); //налаштування таймера ШІМ
+ 19c:	85 b5       	in	r24, 0x25	; 37
+ 19e:	8c 66       	ori	r24, 0x6C	; 108
+ 1a0:	85 bd       	out	0x25, r24	; 37
+	         //((1<<WGM20)|(1<<WGM21)) - Установлюють режим Fast PWM (режим швидкої ШІМ), де таймер працює від 0 до 255
+		     //(COM21) - Установлює режим "Clear OC2 on compare match" (очищення виводу OC2 при співпадінні), що потрібно для ШІМ на виводі OC2 (PD7).
+			 //(CS22) - Установлює переддільник частоти таймера на 64, що визначає частоту ШІМ.
+
+	//Налаштування Timer/Counter 1 (Fast PWM, 8-bit, TOP = 0x00FF)
+	TCCR1A |= (1 << WGM10) | (1 << COM1A1) | (1 << COM1B1);
+ 1a2:	8f b5       	in	r24, 0x2f	; 47
+ 1a4:	81 6a       	ori	r24, 0xA1	; 161
+ 1a6:	8f bd       	out	0x2f, r24	; 47
+	//(TCCR1A - Регістр керування таймером 1)
+	//(WGM10- Біт режиму хвилі (Waveform Generation Mode). У комбінації з WGM12 (нижче) встановлює Fast PWM, 8-біт (TOP = 0x00FF))
+	//(COM1A1: Налаштовує вивід OC1A (PB1) на "очищення при співпадінні" (неінвертований ШІМ: вивід HIGH на початку циклу, LOW при досягненні OCR1A))
+	//І логічно, COM1B1 теж налаштовує відповідний вивід OC1B як і COM1A1
+	TCCR1B |= (1 << WGM12) | (1 << CS10); // Fast PWM, без переддільника, тут ми обираємо режим і частоту таймера
+ 1a8:	8e b5       	in	r24, 0x2e	; 46
+ 1aa:	89 60       	ori	r24, 0x09	; 9
+ 1ac:	8e bd       	out	0x2e, r24	; 46
+	//OCR1A = 27;  // Максимальна ширина імпульсу для (червоний) - тут у нас регістр порівняння для каналу А, тобто червоний світлодіод, максимум як в завданні 0x00FF
+	//OCR1B = 0;  // Максимальна ширина імпульсу для (зелений) - тут відповідно В
+	//225 у 8-біт реж. (0x00FF) - це 255
+	
+    //налаштування переривань
+	MCUCR |= (1 << ISC00) | (1 << ISC01); // переривання на зростаючому фронті сигналу (тобто, коли кнопка натиснута й сигнал переходить із LOW до HIGH).
+ 1ae:	85 b7       	in	r24, 0x35	; 53
+ 1b0:	83 60       	ori	r24, 0x03	; 3
+ 1b2:	85 bf       	out	0x35, r24	; 53
+	MCUCR |= (1 << ISC10) | (1 << ISC11);
+ 1b4:	85 b7       	in	r24, 0x35	; 53
+ 1b6:	8c 60       	ori	r24, 0x0C	; 12
+ 1b8:	85 bf       	out	0x35, r24	; 53
+	GICR |= (1 << INT0) | (1 << INT1); //вмикаємо самі переривання
+ 1ba:	8b b7       	in	r24, 0x3b	; 59
+ 1bc:	80 6c       	ori	r24, 0xC0	; 192
+ 1be:	8b bf       	out	0x3b, r24	; 59
+	sei();
+ 1c0:	78 94       	sei
+	
+	DDRD = 0xB0; //регістр, який вставновлює біти PD7 (OC2, вихід ШІМ), PD6 і PD5 як виходи (1), а решта бітів (включаючи PD2 і PD3 для кнопок) залишаються входами (0)
+ 1c2:	80 eb       	ldi	r24, 0xB0	; 176
+ 1c4:	81 bb       	out	0x11, r24	; 17
+	OCR1B = 253; // B*/
+	
+	
+
+	while(1){
+		Zavd8();
+ 1c6:	6b df       	rcall	.-298    	; 0x9e <Zavd8>
+ 1c8:	fe cf       	rjmp	.-4      	; 0x1c6 <main+0x2a>
+
+000001ca <_exit>:
+ 1ca:	f8 94       	cli
+
+000001cc <__stop_program>:
+ 1cc:	ff cf       	rjmp	.-2      	; 0x1cc <__stop_program>
